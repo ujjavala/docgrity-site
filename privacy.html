@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy &amp; Data Statement — Docgrity</title>
+<style>
+  :root{--blue:#1558bc;--ink:#172b4d;--muted:#5e6c84;--bg:#fafbfc}
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;margin:0}
+  .wrap{max-width:760px;margin:0 auto;padding:48px 24px 72px}
+  h1{letter-spacing:-.02em}
+  h2{margin-top:2em;font-size:1.25rem}
+  .updated{color:var(--muted);font-size:.9rem}
+  table{border-collapse:collapse;width:100%;font-size:.92rem;margin:12px 0}
+  th,td{border:1px solid #ebecf0;padding:8px 10px;text-align:left;vertical-align:top;background:#fff}
+  th{background:#f4f5f7}
+  code{background:#f4f5f7;padding:1px 5px;border-radius:4px;font-size:.9em}
+  a{color:var(--blue)}
+  .top{font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="top"><a href="index.html">← Docgrity home</a></p>
+  <h1>Docgrity Privacy Policy &amp; Data Statement</h1>
+  <p class="updated">Last updated: 5 September 2026</p>
+
+  <h2>Who we are</h2>
+  <p>Docgrity is published by Ujjavala Singh ("we"). Contact: see the support details on our
+  Atlassian Marketplace listing or GitHub profile.</p>
+
+  <h2>The short version</h2>
+  <ul>
+    <li>Docgrity runs <strong>entirely inside Atlassian Forge</strong> on your Atlassian site.
+      We operate <strong>no servers</strong> and can never access your Confluence content.</li>
+    <li>Page content is sent to <strong>exactly one external service: the AI provider you choose
+      and configure with your own API key</strong> (Google Gemini, OpenAI, or Anthropic). That
+      processing happens under <strong>your</strong> agreement with that provider, not ours.</li>
+    <li>We receive <strong>no data at all</strong> — no content, no telemetry, no analytics.</li>
+  </ul>
+
+  <h2>What data the app processes</h2>
+  <table>
+    <tr><th>Data</th><th>Where it lives</th><th>Purpose</th></tr>
+    <tr><td>Page text, titles, version history</td><td>Forge SQL (your site's Forge storage, Atlassian-hosted)</td><td>scanning for duplicates/contradictions/open questions</td></tr>
+    <tr><td>Text embeddings of page content</td><td>Forge SQL</td><td>candidate-pair selection</td></tr>
+    <tr><td>Findings, evidence quotes, audit log</td><td>Forge SQL</td><td>the product</td></tr>
+    <tr><td>Contributor account IDs and display names</td><td>Forge SQL</td><td>potential-owner inference (labelled <em>potential</em>)</td></tr>
+    <tr><td>Your AI provider API key</td><td>Forge KVS <strong>secret</strong> storage</td><td>calling your AI provider; never logged, never shown in the UI, never stored in SQL</td></tr>
+    <tr><td>Provider/model choice, thresholds</td><td>Forge KVS</td><td>configuration</td></tr>
+  </table>
+  <p>All of the above is stored in Atlassian's Forge platform storage, scoped to your
+  installation, and is deleted by Atlassian when you uninstall the app, per the
+  <a href="https://developer.atlassian.com/platform/forge/storage/">Forge data lifecycle</a>.</p>
+
+  <h2>What leaves Atlassian</h2>
+  <p>Only requests to the AI provider <strong>you</strong> configured, containing the page text
+  being analysed. Egress is platform-enforced (Forge manifest allowlist) to:</p>
+  <ul>
+    <li><code>generativelanguage.googleapis.com</code> (Google Gemini)</li>
+    <li><code>api.openai.com</code> (OpenAI)</li>
+    <li><code>api.anthropic.com</code> (Anthropic)</li>
+  </ul>
+  <p>Only the one provider you select is ever called. Review your chosen provider's data-use
+  terms (e.g. API-tier no-training commitments) — your key, your terms.</p>
+
+  <h2>What we collect</h2>
+  <p>Nothing. We have no backend, no telemetry endpoint, and no access to your site, content,
+  findings, or keys.</p>
+
+  <h2>Permissions (Confluence scopes)</h2>
+  <ul>
+    <li>Read pages, spaces, versions and contributors — to scan and infer ownership.</li>
+    <li>Write pages and comments — only for actions a human explicitly approves in the dashboard
+      (merge &amp; redirect, apply fix, post comment).</li>
+    <li>App storage — findings, embeddings, settings, audit log.</li>
+  </ul>
+
+  <h2>Security measures</h2>
+  <ul>
+    <li>API keys stored exclusively in Forge KVS <strong>secret</strong> storage.</li>
+    <li>Settings changes restricted to Confluence site admins, enforced server-side.</li>
+    <li>Every agent action is recorded in an audit log inside your installation.</li>
+    <li>All LLM output is schema-validated; page content is treated as untrusted input and
+      cannot override agent instructions.</li>
+    <li>No destructive action (page edit, archive) occurs without human approval.</li>
+  </ul>
+
+  <h2>Data subject rights &amp; retention</h2>
+  <p>Docgrity stores no personal data outside your Atlassian site. Contributor names/IDs
+  mirrored into findings are removed when findings are deleted or the app is uninstalled.
+  For rights requests concerning Confluence data itself, contact your Atlassian admin; for
+  the AI provider, see that provider's policy.</p>
+
+  <h2>Changes</h2>
+  <p>We will update this page and the "last updated" date when practices change.</p>
+</div>
+</body>
+</html>
