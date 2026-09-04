@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Docgrity works — step by step</title>
+<meta name="description" content="A step-by-step walkthrough of Docgrity finding duplicates, contradictions and open questions in Confluence — with real screenshots.">
+<style>
+  :root{--blue:#1558bc;--blue2:#0b3d91;--teal:#16a394;--ink:#172b4d;--muted:#5e6c84;--bg:#fafbfc}
+  *{margin:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  header{padding:56px 0 24px;text-align:center}
+  header img{width:72px;height:72px;margin-bottom:12px}
+  h1{font-size:2rem;letter-spacing:-.02em}
+  .tag{font-size:1.1rem;color:var(--muted);max-width:640px;margin:10px auto 20px}
+  nav{margin-bottom:8px}
+  nav a{color:var(--blue);text-decoration:none;font-weight:600;margin:0 10px}
+  section{padding:32px 0}
+  h2{font-size:1.4rem;margin-bottom:6px}
+  h2 .num{display:inline-block;background:var(--blue);color:#fff;border-radius:99px;width:32px;height:32px;line-height:32px;text-align:center;font-size:1rem;margin-right:10px}
+  .scenario{display:inline-block;background:#e6f7f4;color:var(--teal);font-weight:700;font-size:.8rem;padding:3px 12px;border-radius:99px;margin-bottom:8px;letter-spacing:.03em;text-transform:uppercase}
+  .scenario.warn{background:#fff3e6;color:#b45309}
+  .lede{color:var(--muted);margin-bottom:18px;max-width:720px}
+  figure{background:#fff;border:1px solid #ebecf0;border-radius:12px;padding:12px;box-shadow:0 4px 18px rgba(23,43,77,.06);margin:0 0 18px}
+  figure img{width:100%;border-radius:8px;display:block}
+  figcaption{color:var(--muted);font-size:.9rem;padding:10px 6px 2px}
+  .divider{border:none;border-top:1px solid #ebecf0;margin:24px 0}
+  footer{padding:40px 0 56px;color:var(--muted);font-size:.9rem;text-align:center;border-top:1px solid #ebecf0;margin-top:40px}
+  footer a{color:var(--blue)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a href="index.html"><img src="logo.png" alt="Docgrity logo"></a>
+    <h1>How Docgrity works</h1>
+    <p class="tag">A real walkthrough on a live Confluence site — from a full scan to owners being notified. Nothing is edited or archived without a human clicking "Yes, do it".</p>
+    <nav><a href="index.html">Home</a> · <a href="privacy.html">Privacy</a></nav>
+  </header>
+
+  <section>
+    <h2><span class="num">1</span>Run a scan</h2>
+    <p class="lede">Open Docgrity from the Confluence Apps menu and hit <strong>Run full scan</strong>. The agent reads your pages (using your own AI provider key), compares claims across pages and produces open findings grouped by type and severity. Here: 33 findings — 13 duplicates, 7 contradictions and 13 open questions.</p>
+    <figure><img src="screenshots/shot_01.png" alt="Docgrity overview dashboard showing 33 open findings with severity breakdown"><figcaption>The overview dashboard after a completed scan, with counts by finding type and severity.</figcaption></figure>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span>Review every finding — with evidence</h2>
+    <p class="lede">Each finding shows its severity, confidence, the <em>potential</em> owner (inferred from edit history, never asserted) and a recommended action — review, merge or ignore. Filter by severity to triage the critical ones first.</p>
+    <figure><img src="screenshots/shot_02.png" alt="All findings list with severity, confidence, potential owner and recommended action columns"><figcaption>The findings list: contradictions, duplicates and open questions ranked by severity and confidence.</figcaption></figure>
+  </section>
+
+  <hr class="divider">
+
+  <section>
+    <span class="scenario warn">Scenario A · Contradiction</span>
+    <h2>Two templates record decisions differently</h2>
+    <p class="lede">Docgrity flagged a <strong>critical contradiction</strong>: two "Meeting notes" templates record decisions with different decision IDs. It quotes the exact conflicting claims from both pages, side by side.</p>
+    <figure><img src="screenshots/shot_03.png" alt="Contradiction finding detail with conflicting claims quoted from both pages"><figcaption>The finding detail: pages involved, the conflicting claims, and inferred potential owners.</figcaption></figure>
+
+    <p class="lede">Choose <strong>Notify potential owner</strong>. Docgrity always confirms before acting — no silent changes, ever.</p>
+    <figure><img src="screenshots/shot_04.png" alt="Confirm action prompt asking to post a Docgrity comment mentioning the inferred owner"><figcaption>The human-approval step: the action only runs after you click "Yes, do it".</figcaption></figure>
+
+    <figure><img src="screenshots/shot_05.png" alt="Action completed banner showing the owner notification was queued"><figcaption>Action completed — the notification is queued and the audit trail records who approved it.</figcaption></figure>
+
+    <p class="lede">Docgrity posts a comment on the actual page, explaining the conflict in plain language and @-mentioning the potential owners so they can resolve it.</p>
+    <figure><img src="screenshots/shot_06.png" alt="Docgrity comment on the Confluence page explaining the contradiction and mentioning owners"><figcaption>The comment lands on the page itself, where the owners already work.</figcaption></figure>
+  </section>
+
+  <hr class="divider">
+
+  <section>
+    <span class="scenario">Scenario B · Duplicate</span>
+    <h2>Two pages saying the same thing</h2>
+    <p class="lede">Two "Getting started in Confluence" pages have near-identical content. Docgrity quotes the matching passages from both pages and suggests which one to keep.</p>
+    <figure><img src="screenshots/shot_07.png" alt="Duplicate finding detail comparing two Getting started pages with quoted evidence"><figcaption>The duplicate finding: evidence from both pages and keep-A / keep-B options.</figcaption></figure>
+
+    <figure><img src="screenshots/shot_08.png" alt="Confirm action prompt for the duplicate finding"><figcaption>Same approval flow — confirm before anything happens.</figcaption></figure>
+
+    <figure><img src="screenshots/shot_09.png" alt="Action completed for the duplicate finding"><figcaption>Owner notification queued for the duplicate pair.</figcaption></figure>
+
+    <figure><img src="screenshots/shot_10.png" alt="Docgrity comment on the duplicate page suggesting merge or keep-both, mentioning owners"><figcaption>Owners get a clear ask: reply "merge", "keep both", or another course of action.</figcaption></figure>
+  </section>
+
+  <hr class="divider">
+
+  <section>
+    <h2><span class="num">3</span>Owners get notified where they already are</h2>
+    <p class="lede">Because Docgrity uses native Confluence comments and @-mentions, owners see findings in their normal Confluence notifications — no new tool to check.</p>
+    <figure><img src="screenshots/shot_11.png" alt="Confluence notifications panel showing Docgrity mention notifications"><figcaption>Native Confluence notifications from Docgrity's comments.</figcaption></figure>
+  </section>
+
+  <footer>
+    <p><a href="index.html">Docgrity</a> · <a href="privacy.html">Privacy policy &amp; data statement</a> · <a href="https://github.com/ujjavala">GitHub</a></p>
+  </footer>
+</div>
+</body>
+</html>
