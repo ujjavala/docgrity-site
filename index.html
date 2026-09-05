@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="description" content="Find where your Confluence wiki disagrees with itself: duplicates, contradictions and open questions — with evidence and likely owners. Zero infrastructure, bring your own AI key.">
+<meta name="description" content="Find where your Confluence wiki disagrees with itself: duplicates, contradictions and open questions — with evidence and likely owners. Zero infrastructure, works instantly with no AI key — add your own key to unlock contradiction detection.">
 <style>
   :root{--blue:#1558bc;--blue2:#0b3d91;--teal:#16a394;--ink:#172b4d;--muted:#5e6c84;--bg:#fafbfc}
   *{margin:0;box-sizing:border-box}
@@ -47,7 +47,7 @@
     <h2>What it finds</h2>
     <div class="grid">
       <div class="card"><span class="pill">Duplicates</span><h3>Pages that should be one</h3><p>Near-identical pages detected semantically, with a recommended survivor and a merge &amp; redirect action.</p></div>
-      <div class="card"><span class="pill">Contradictions</span><h3>Facts that don't agree</h3><p>Conflicting dates, owners, numbers and processes — with the conflicting claims quoted side by side.</p></div>
+      <div class="card"><span class="pill">Contradictions</span><h3>Facts that don't agree</h3><p>Conflicting dates, owners, numbers and processes — with the conflicting claims quoted side by side. Needs an AI provider key (semantic reasoning).</p></div>
       <div class="card"><span class="pill">Open questions</span><h3>Questions nobody answered</h3><p>Unanswered questions and stale TODOs living inside your pages, surfaced with owners who can close them.</p></div>
     </div>
   </section>
@@ -55,8 +55,8 @@
   <section>
     <h2>Why it's different</h2>
     <div class="grid">
-      <div class="card"><h3>Zero infrastructure</h3><p>Runs 100% on Atlassian Forge — no vendor servers, no data leaving your Atlassian site except to your own AI provider.</p></div>
-      <div class="card"><h3>Bring your own AI key</h3><p>Google Gemini, OpenAI or Anthropic — your key, your provider terms, no per-token markup.</p></div>
+      <div class="card"><h3>Zero infrastructure</h3><p>Runs 100% on Atlassian Forge — no vendor servers. In the default no-AI mode, nothing leaves your Atlassian site at all.</p></div>
+      <div class="card"><h3>Works instantly — no AI key needed</h3><p>Built-in heuristics find duplicates and open questions out of the box, free. Add your own Google Gemini, OpenAI or Anthropic key to unlock contradiction detection and smarter matching — your key, your provider terms, no per-token markup.</p></div>
       <div class="card"><h3>Evidence, always</h3><p>Every finding quotes the exact text it's based on. Ownership is always labelled <em>potential</em>, never asserted.</p></div>
       <div class="card"><h3>Humans approve changes</h3><p>The agent never edits or archives a page on its own. Every action is audited.</p></div>
     </div>
