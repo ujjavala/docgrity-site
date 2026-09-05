@@ -72,9 +72,20 @@
   <p>Nothing. We have no backend, no telemetry endpoint, and no access to your site, content,
   findings, or keys.</p>
 
+  <h2>App logs</h2>
+  <p>Like all Forge apps, diagnostic logs (errors and operational messages emitted by the app's
+  functions) are collected by the Atlassian Forge platform, and we can read them to
+  troubleshoot issues. These logs are engineered to <strong>never contain page content, personal
+  data, or API keys</strong> — provider error messages are truncated and keys are never logged.
+  Site admins can <a href="https://support.atlassian.com/security-and-access-policies/docs/manage-your-users-third-party-apps">disable
+  our log access, or view and download the logs</a> at any time from admin.atlassian.com.</p>
+
   <h2>Permissions (Confluence scopes)</h2>
   <ul>
     <li>Read pages, spaces, versions and contributors — to scan and infer ownership.</li>
+    <li>Read user — to resolve contributor account IDs to display names. Although the scope
+      technically permits reading email addresses, Docgrity <strong>never reads, stores or
+      transmits email addresses</strong>; only account IDs and display names are used.</li>
     <li>Write pages and comments — only for actions a human explicitly approves in the dashboard
       (merge &amp; redirect, apply fix, post comment).</li>
     <li>App storage — findings, embeddings, settings, audit log.</li>
