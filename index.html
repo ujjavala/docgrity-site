@@ -8,73 +8,94 @@
 <link rel="icon" type="image/png" href="logo.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="description" content="Find where your Confluence wiki disagrees with itself: duplicates, contradictions and open questions — with evidence and likely owners. Zero infrastructure, works instantly with no AI key — add your own key to unlock contradiction detection.">
-<style>
-  :root{--blue:#1558bc;--blue2:#0b3d91;--teal:#16a394;--ink:#172b4d;--muted:#5e6c84;--bg:#fafbfc}
-  *{margin:0;box-sizing:border-box}
-  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
-  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
-  header{padding:72px 0 48px;text-align:center}
-  header img{width:96px;height:96px;margin-bottom:16px}
-  h1{font-size:2.4rem;letter-spacing:-.02em}
-  .tag{font-size:1.25rem;color:var(--muted);max-width:640px;margin:12px auto 28px}
-  .cta{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;font-weight:600;padding:12px 28px;border-radius:8px}
-  .cta:hover{background:var(--blue2)}
-  .cta.ghost{background:transparent;color:var(--blue);border:2px solid var(--blue);margin-left:12px}
-  section{padding:40px 0}
-  h2{font-size:1.5rem;margin-bottom:16px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-  .card{background:#fff;border:1px solid #ebecf0;border-radius:10px;padding:20px}
-  .card h3{font-size:1.05rem;margin-bottom:6px}
-  .card p{color:var(--muted);font-size:.95rem}
-  .pill{display:inline-block;background:#e6f7f4;color:var(--teal);font-weight:600;font-size:.8rem;padding:2px 10px;border-radius:99px;margin-bottom:8px}
-  footer{padding:40px 0 56px;color:var(--muted);font-size:.9rem;text-align:center;border-top:1px solid #ebecf0;margin-top:40px}
-  footer a{color:var(--blue)}
-</style>
+<link rel="stylesheet" href="theme.css">
 </head>
 <body>
-<div class="wrap">
-  <header>
+<svg width="0" height="0" style="position:absolute"><defs>
+  <linearGradient id="docgrity-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#14b8a6"/><stop offset="50%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#8b7bf7"/>
+  </linearGradient>
+</defs></svg>
+<header>
+  <div class="wrap">
     <img src="logo.png" alt="Docgrity logo">
-    <h1>Docgrity</h1>
-    <p class="tag">Find where your Confluence wiki disagrees with itself — duplicates, contradictions and open questions, with evidence and likely owners.</p>
-    <a class="cta" href="https://developer.atlassian.com/console/install/05f6275a-e8b5-4828-b2cc-bd0570d77a0a?signature=AYABeHVtEIvp257B3Wgdzn4rPFwAAAADAAdhd3Mta21zAEthcm46YXdzOmttczp1cy13ZXN0LTI6NzA5NTg3ODM1MjQzOmtleS83MDVlZDY3MC1mNTdjLTQxYjUtOWY5Yi1lM2YyZGNjMTQ2ZTcAuAECAQB4IOp8r3eKNYw8z2v%2FEq3%2FfvrZguoGsXpNSaDveR%2FF%2Fo0BxUTaMjkDZ8rEjN%2FKASiOmgAAAH4wfAYJKoZIhvcNAQcGoG8wbQIBADBoBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDN12lzCUQmbnzC0YeAIBEIA7n%2FRSQBeRJC%2FRJ5rynYIsPcdszBegCtIBmapX%2BG3TF132UXhcrMwtex7vw%2F7CRMrOojuMcfyHnSz3lfMAB2F3cy1rbXMAS2Fybjphd3M6a21zOmV1LXdlc3QtMTo3MDk1ODc4MzUyNDM6a2V5LzQ2MzBjZTZiLTAwYzMtNGRlMi04NzdiLTYyN2UyMDYwZTVjYwC4AQICAHijmwVTMt6Oj3F%2B0%2B0cVrojrS8yZ9ktpdfDxqPMSIkvHAGPSaHLHXLfAmoeKqjW6bbzAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMbKlohf3CBYY0bChOAgEQgDuUd3vPI1d7xQ0C2PYoRmCPRFbLL1ttFLdVGeOFFVDbLrgh3V%2BNlkDwhgzEje835Nw83uf8VsHc%2FJTwIgAHYXdzLWttcwBLYXJuOmF3czprbXM6dXMtZWFzdC0xOjcwOTU4NzgzNTI0MzprZXkvNmMxMjBiYTAtNGNkNS00OTg1LWI4MmUtNDBhMDQ5NTJjYzU3ALgBAgIAeLKa7Dfn9BgbXaQmJGrkKztjV4vrreTkqr7wGwhqIYs5AXlFJ%2FzhlHk2NIsQ3FkeQSEAAAB%2BMHwGCSqGSIb3DQEHBqBvMG0CAQAwaAYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAwdaBPkAE1zz38APtkCARCAO%2Fg5KCTj8%2B7feTQV%2FYpqLccnhqWSRu1c03lxr4qCbe2nHHMOXe%2BWZzw5eRIyJqiM%2BulRigcTH5wqx6tpAgAAAAAMAAAQAAAAAAAAAAAAAAAAAI8T%2B4mXGiI6KBmpnM9SQ8n%2F%2F%2F%2F%2FAAAAAQAAAAAAAAAAAAAAAQAAADLvWjoYgyD7b9SfE1i2staeRlc0oC%2BWs155gEbe0Bvk0e98K6hi1zCeJ4F5%2F6fxpKAAbUuGIHEw1xuUKAut1Erk9pA%3D&product=confluence" rel="noopener">Install on Confluence — Free</a>
-    <a class="cta ghost" href="how-it-works.html">See how it works</a>
-    <a class="cta ghost" href="privacy.html">Privacy</a>
-    <p style="margin-top:14px;color:var(--muted);font-size:.9rem">You'll need to be a Confluence site admin to install. Built on Atlassian Forge — installs in under a minute.</p>
-  </header>
+    <p class="kicker">docs · integrity · confluence</p>
+    <h1>Your wiki disagrees<br>with itself. <span class="g">Docgrity finds where.</span></h1>
+    <p class="tag">Duplicates, contradictions and open questions across your Confluence pages — with verbatim evidence and likely owners. Nothing changes without your click.</p>
+    <a class="cta" href="https://developer.atlassian.com/console/install/05f6275a-e8b5-4828-b2cc-bd0570d77a0a?signature=AYABeHVtEIvp257B3Wgdzn4rPFwAAAADAAdhd3Mta21zAEthcm46YXdzOmttczp1cy13ZXN0LTI6NzA5NTg3ODM1MjQzOmtleS83MDVlZDY3MC1mNTdjLTQxYjUtOWY5Yi1lM2YyZGNjMTQ2ZTcAuAECAQB4IOp8r3eKNYw8z2v%2FEq3%2FfvrZguoGsXpNSaDveR%2FF%2Fo0BxUTaMjkDZ8rEjN%2FKASiOmgAAAH4wfAYJKoZIhvcNAQcGoG8wbQIBADBoBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDN12lzCUQmbnzC0YeAIBEIA7n%2FRSQBeRJC%2FRJ5rynYIsPcdszBegCtIBmapX%2BG3TF132UXhcrMwtex7vw%2F7CRMrOojuMcfyHnSz3lfMAB2F3cy1rbXMAS2Fybjphd3M6a21zOmV1LXdlc3QtMTo3MDk1ODc4MzUyNDM6a2V5LzQ2MzBjZTZiLTAwYzMtNGRlMi04NzdiLTYyN2UyMDYwZTVjYwC4AQICAHijmwVTMt6Oj3F%2B0%2B0cVrojrS8yZ9ktpdfDxqPMSIkvHAGPSaHLHXLfAmoeKqjW6bbzAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMbKlohf3CBYY0bChOAgEQgDuUd3vPI1d7xQ0C2PYoRmCPRFbLL1ttFLdVGeOFFVDbLrgh3V%2BNlkDwhgzEje835Nw83uf8VsHc%2FJTwIgAHYXdzLWttcwBLYXJuOmF3czprbXM6dXMtZWFzdC0xOjcwOTU4NzgzNTI0MzprZXkvNmMxMjBiYTAtNGNkNS00OTg1LWI4MmUtNDBhMDQ5NTJjYzU3ALgBAgIAeLKa7Dfn9BgbXaQmJGrkKztjV4vrreTkqr7wGwhqIYs5AXlFJ%2FzhlHk2NIsQ3FkeQSEAAAB%2BMHwGCSqGSIb3DQEHBqBvMG0CAQAwaAYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAwdaBPkAE1zz38APtkCARCAO%2Fg5KCTj8%2B7feTQV%2FYpqLccnhqWSRu1c03lxr4qCbe2nHHMOXe%2BWZzw5eRIyJqiM%2BulRigcTH5wqx6tpAgAAAAAMAAAQAAAAAAAAAAAAAAAAAI8T%2B4mXGiI6KBmpnM9SQ8n%2F%2F%2F%2F%2FAAAAAQAAAAAAAAAAAAAAAQAAADLvWjoYgyD7b9SfE1i2staeRlc0oC%2BWs155gEbe0Bvk0e98K6hi1zCeJ4F5%2F6fxpKAAbUuGIHEw1xuUKAut1Erk9pA%3D&product=confluence" rel="noopener">Install on Confluence — Free →</a>
+    <a class="cta ghost" href="how-it-works.html">How it works</a>
+    <div class="badges">
+      <span class="badge"><b>0</b> servers · <b>0</b> accounts · <b>0</b> telemetry</span>
+      <span class="badge">works instantly · <b>no AI key needed</b></span>
+      <span class="badge">installs in under a minute</span>
+    </div>
+  </div>
+</header>
 
+<div class="wrap">
   <section>
     <h2>What it finds</h2>
+    <p class="sub">Three kinds of wiki rot, each with verbatim evidence and a confidence score. On a real site: 129 findings from one scan.</p>
     <div class="grid">
-      <div class="card"><span class="pill">Duplicates</span><h3>Pages that should be one</h3><p>Near-identical pages detected semantically, with a recommended survivor and a merge &amp; redirect action.</p></div>
-      <div class="card"><span class="pill">Contradictions</span><h3>Facts that don't agree</h3><p>Conflicting dates, owners, numbers and processes — with the conflicting claims quoted side by side. Needs an AI provider key (semantic reasoning).</p></div>
-      <div class="card"><span class="pill">Open questions</span><h3>Questions nobody answered</h3><p>Unanswered questions and stale TODOs living inside your pages, surfaced with owners who can close them.</p></div>
+      <div class="card find"><span class="conf">85%</span><span class="pill"><i data-lucide="copy" class="lucide-inline"></i>Duplicates</span><h3>Pages that should be one</h3><p>Near-identical pages, detected by built-in heuristics — free, no AI key.</p></div>
+      <div class="card find contradiction"><span class="conf">91%</span><span class="pill red"><i data-lucide="zap" class="lucide-inline"></i>Contradictions</span><h3>Facts that don't agree</h3><p>“The SLA is 4 hours” vs “24 hours” — quoted side by side. Needs your AI key.</p></div>
+      <div class="card find openq"><span class="conf">95%</span><span class="pill amber">Open questions</span><h3>Questions nobody answered</h3><p>Stale TODOs and unanswered questions, with potential owners from edit history.</p></div>
     </div>
+  </section>
+
+  <section>
+    <h2>See every finding — with evidence</h2>
+    <p class="sub">A dashboard inside Confluence: findings grouped by type and severity, each quoting the exact text it's based on.</p>
+    <figure class="shot">
+      <div class="inner">
+        <img src="screenshots/shot_01.png" alt="Docgrity dashboard showing findings across a Confluence site" loading="lazy">
+        <figcaption>The overview dashboard after a full scan — click any tile to drill into that finding type.</figcaption>
+      </div>
+    </figure>
   </section>
 
   <section>
     <h2>Why it's different</h2>
     <div class="grid">
-      <div class="card"><h3>Zero infrastructure</h3><p>Runs 100% on Atlassian Forge — no vendor servers. In the default no-AI mode, nothing leaves your Atlassian site at all.</p></div>
-      <div class="card"><h3>Works instantly — no AI key needed</h3><p>Built-in heuristics find duplicates and open questions out of the box, free. Add your own Google Gemini, OpenAI or Anthropic key to unlock contradiction detection and smarter matching — your key, your provider terms, no per-token markup.</p></div>
-      <div class="card"><h3>Evidence, always</h3><p>Every finding quotes the exact text it's based on. Ownership is always labelled <em>potential</em>, never asserted.</p></div>
-      <div class="card"><h3>Humans approve changes</h3><p>The agent never edits or archives a page on its own. Every action is audited.</p></div>
+      <div class="card"><i data-lucide="server-off" class="lucide"></i><h3>Zero infrastructure</h3><p>Runs 100% on Atlassian Forge. In no-AI mode, nothing leaves your site.</p></div>
+      <div class="card"><i data-lucide="zap" class="lucide"></i><h3>Works instantly</h3><p>Built-in heuristics find duplicates &amp; open questions — free, no AI key.</p></div>
+      <div class="card"><i data-lucide="file-search" class="lucide"></i><h3>Evidence, always</h3><p>Every finding quotes the exact text it's based on.</p></div>
+      <div class="card"><i data-lucide="user-check" class="lucide"></i><h3>Humans approve</h3><p>Nothing is edited or archived without your click. Every action audited.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="band">
+      <h2>Unlock contradiction detection</h2>
+      <p>Add your own Gemini, OpenAI or Anthropic key to spot facts that don't agree — “the SLA is 4 hours” vs “24 hours” — plus smarter duplicate matching. Your key, your provider terms, no markup.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Up and running in a minute</h2>
+    <div class="steps-row">
+      <div class="step"><strong>Install</strong><span>One click from this page. Forge app, no servers.</span></div>
+      <div class="step"><strong>Scan</strong><span>Hit “Run full scan” — heuristics work immediately.</span></div>
+      <div class="step"><strong>Fix</strong><span>Review evidence, notify owners, merge duplicates.</span></div>
     </div>
   </section>
 
   <section>
     <h2>Docgrity for VS Code <span class="pill">Available now</span></h2>
+    <p class="sub">The same checks for your repo's markdown — READMEs, ADRs, runbooks — inside VS Code.</p>
     <div class="grid">
-      <div class="card"><h3>Same checks, your repo</h3><p>Contradictions, duplicates and open questions across your repository's markdown docs — READMEs, ADRs, runbooks — right inside VS Code.</p></div>
-      <div class="card"><h3>Powered by your Copilot</h3><p>All AI calls go through your own GitHub Copilot subscription. No API keys, no servers, nothing leaves your editor.</p></div>
-      <div class="card"><h3>Fix via GitHub issues</h3><p>One click drafts a GitHub issue with evidence and a suggested next step — you review and approve before anything is posted.</p></div>
+      <div class="card"><i data-lucide="folder-git-2" class="lucide"></i><h3>Same checks, your repo</h3><p>READMEs, ADRs and runbooks checked inside VS Code.</p></div>
+      <div class="card"><i data-lucide="bot" class="lucide"></i><h3>Powered by your Copilot</h3><p>Uses your Copilot subscription. No keys, no servers.</p></div>
+      <div class="card"><i data-lucide="github" class="lucide"></i><h3>Fix via GitHub issues</h3><p>One click drafts an issue with evidence — you approve.</p></div>
     </div>
-    <p><a href="https://ujjavala.github.io/docgrity-vscode-site/index.html">Learn more about Docgrity for VS Code →</a></p>
+    <p style="text-align:center;margin-top:18px"><a href="https://ujjavala.github.io/docgrity-vscode-site/index.html">Learn more about Docgrity for VS Code →</a></p>
   </section>
 
   <footer>
     <p>Docgrity · <a href="how-it-works.html">How it works</a> · <a href="privacy.html">Privacy policy &amp; data statement</a> · <a href="terms.html">Terms of service</a> · <a href="https://github.com/ujjavala">GitHub</a></p>
   </footer>
 </div>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons();</script>
 </body>
 </html>
